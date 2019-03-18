@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-aria.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/lodash.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/jszip.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/excel-builder.dist.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <script src="xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+    <link rel="stylesheet" href="main.css" type="text/css">
+  </head>
+  <body>
+
+<div ng-controller="MainCtrl as $ctrl">
+  Try clicking the Add Button to add the company column.
+  Try clicking the Remove Button to remove the last column.
+  Try clicking the Splice Button to insert a column in the middle.
+  Try clicking the Unsplice Button to delete a column in the middle.
+  <br>
+  <br>
+  <button id="button_add" class="btn btn-default" ng-click="$ctrl.add()">Add Column</button>
+  <button id="button_remove" class="btn btn-default" ng-click="$ctrl.remove()">Remove Last</button>
+  <p></p>
+  <form> Name:<input type="text" id="input"></form>
+  <p></p>
+  <button id="button_addRow" class="btn btn-default" ng-click="$ctrl.addUser()">Add Row</button>
+  <button id="button_splice" class="btn btn-default" ng-click="$ctrl.splice()">Splice</button>
+  <button id="button_unsplice" class="btn btn-default" ng-click="$ctrl.unsplice()">Unsplice</button>
+  <button id="button_removeAll" class="btn btn-default" ng-click="$ctrl.removeAll()">Remove All</button>
+  <button id="button_group" class="btn btn-default" ng-click="$ctrl.group()">Group</button>
+  <button id="button_expandAll" type="button" class="btn btn-success" ng-click="$ctrl-expandAll()">Expand All</button>
+  <button id="button_columnFooter" class="btn btn-default" ng-click="$ctrl.columnFooter()">Column Footer</button>
+  <input type="file" id="inputButton" accept=".xls,.xlsx,.ods" fileread="" opts="vm.gridOptions" multiple="false" />
+  <div id="grid1" ui-grid="$ctrl.gridOptions" ui-grid-edit class="grid" ui-grid-pinning ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination ui-grid-cellnav ui-grid-importer ui-grid-grouping ui-grid-selection ui-grid-exporter></div>
+
+  <select id="ddlViewBy">
+    <option value="Arial">Default</option>
+    <option value="Comic Sans MS">Comic Sans</option>
+    <option value="Helvetica">Helvetica</option>
+    <option value="Times">Times New Roman</option>
+  </select>
+
+</div>
+
+    <script src="app.js"></script>
+
+    
